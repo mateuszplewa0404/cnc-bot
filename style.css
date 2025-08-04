@@ -1,1 +1,142 @@
-/* style.css placeholder */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f2f2f7;
+}
+
+header {
+    background: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.screen {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 200px 100px;
+    gap: 15px 20px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.form-grid label {
+    font-weight: bold;
+}
+
+.form-grid input,
+.form-grid select {
+    width: 100%;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.stop-times {
+    display: contents;
+}
+
+#goToTimersBtn {
+    margin-top: 40px;
+    padding: 15px 35px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    background-color: #007aff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#goToTimersBtn:hover {
+    background-color: #005bbb;
+    transform: scale(1.05);
+}
+
+.machine-card {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.timer {
+    font-size: 3em;
+    font-weight: bold;
+    background: #1c1c1e;
+    color: #00ff9d;
+    padding: 15px 30px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.stop-timers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stop-timer {
+    background: #222;
+    color: #ffd60a;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.machine-card button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: white;
+}
+
+.machine-card button.start {
+    background-color: #007aff;
+}
+
+.machine-card button.stop {
+    background-color: #ff3b30;
+}
+
+.stop-prompt {
+    background: #ffeaa7;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.stop-prompt button {
+    margin: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.stop-prompt .yes {
+    background: #27ae60;
+    color: white;
+}
+
+.stop-prompt .no {
+    background: #e74c3c;
+    color: white;
+}
