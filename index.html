@@ -1,1 +1,81 @@
-<!-- index.html placeholder -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNC Reminder Bot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>CNC Reminder Bot</header>
+
+<main id="screen-settings" class="screen">
+    <h2>⚙️ Ustawienia</h2>
+    <div class="form-grid">
+        <!-- Grob -->
+        <label for="grob_prog">Grob - czas programu (min):</label>
+        <input type="number" id="grob_prog" placeholder="np. 20">
+
+        <label for="grob_stop_number">Ilość stopów na Grobie:</label>
+        <select id="grob_stop_number" onchange="generateStopInputs('grob')">
+            <option value="0" selected>0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <div id="grob_stop_times_container" class="stop-times hidden"></div>
+
+        <hr style="grid-column: span 2;">
+
+        <!-- EMCO -->
+        <label for="emco_prog">EMCO - czas programu (min):</label>
+        <input type="number" id="emco_prog" placeholder="np. 15">
+
+        <label for="emco_stop_number">Ilość stopów na EMCO:</label>
+        <select id="emco_stop_number" onchange="generateStopInputs('emco')">
+            <option value="0" selected>0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <div id="emco_stop_times_container" class="stop-times hidden"></div>
+    </div>
+
+    <button id="goToTimersBtn" onclick="applySettings()">Przejdź do liczników</button>
+</main>
+
+<main id="screen-timers" class="screen hidden">
+    <h2>⏱ Liczniki</h2>
+    <div class="machine-card">
+        <h3>Grob</h3>
+        <div class="timer" id="grob_timer">00:00</div>
+        <div id="grob_stop_timers" class="stop-timers-list"></div>
+        <div id="grob_stop_prompt" class="stop-prompt hidden"></div>
+        <button class="start" onclick="startTimer('grob')">Start Grob</button>
+    </div>
+    <div class="machine-card">
+        <h3>EMCO</h3>
+        <div class="timer" id="emco_timer">00:00</div>
+        <div id="emco_stop_timers" class="stop-timers-list"></div>
+        <div id="emco_stop_prompt" class="stop-prompt hidden"></div>
+        <button class="start" onclick="startTimer('emco')">Start EMCO</button>
+    </div>
+</main>
+
+<nav>
+    <button onclick="showScreen('screen-settings')">⚙️</button>
+    <button onclick="showScreen('screen-timers')">⏱</button>
+</nav>
+
+<audio id="beepSound" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" preload="auto"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
